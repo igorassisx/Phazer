@@ -1,8 +1,11 @@
+const { Phaser } = require("./phaser.min");
+
 window.onload = function() {
     var gameconfig = {
         width: 480,
         height: 640, 
-        backgroundColor: 0xff0000
+        backgroundColor: 0xff0000,
+        scene: [bootGame, playGame]
     }
     var game = new Phaser.Game(gameconfig);
    }
@@ -10,6 +13,25 @@ window.onload = function() {
     window.focus();
     resizeGame();
     window.addEventListener("resize", resizeGame);
+
+    class bootGame extends Phaser.Scene {
+        constructor() {
+            super("BootGame");
+        }
+        create() {
+            console.log("game is booting...")
+            this.scene.start("playGame")
+        }
+    }
+
+    class playGame extends Phaser.Scene {
+        constructor() {
+            super("PlayGame");
+        }
+        create() {
+            console.log("this is my awesome game");
+        }
+    }
 
     function resizeGame() {
         var canvas = document.querySelector("canvas");
