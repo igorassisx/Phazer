@@ -1,16 +1,15 @@
 window.onload = function() {
-    var gameconfig = {
+    var gameConfig = {
         width: 480,
         height: 640, 
         backgroundColor: 0xff0000,
         scene: [bootGame, playGame]
     }
-    var game = new Phaser.Game(gameconfig);
-   }
     game = new Phaser.Game(gameConfig);
     window.focus();
     resizeGame();
     window.addEventListener("resize", resizeGame);
+    }
 
     class bootGame extends Phaser.Scene {
         constructor() {
