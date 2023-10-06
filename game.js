@@ -1,5 +1,3 @@
-const { Phaser } = require("./phaser.min");
-
 window.onload = function() {
     var gameconfig = {
         width: 480,
