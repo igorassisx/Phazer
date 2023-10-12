@@ -1,10 +1,10 @@
 var game;
     var gameOptions = {
-        tileSize: 200, 
+        tileSize: 190, 
         tileSpacing: 20,  
         boardSize : {
-            rows: 4,
-            cols: 4
+            rows: 3,
+            cols: 5
         }
 
     }
@@ -17,7 +17,6 @@ window.onload = function() {
         backgroundColor: 0xecf0f1,
         scene: [bootGame, playGame]
     }
-
 
     game = new Phaser.Game(gameConfig);
     window.focus();
@@ -43,8 +42,8 @@ window.onload = function() {
             super("PlayGame");
         }
         create() {
-            for(var i = 0; i < 4; i++) {
-                for(var j = 0; j < 4; j++) {
+            for(var i = 0; i < gameOptions.boardSize.rows; i++) {
+                for(var j = 0; j < gameOptions.boardSize.cols; j++) {
                     var tilePosition = this.getTilePosition(i, j)
                     this.add.image(tilePosition.x, tilePosition.y, "emptytile");
                 }
